@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="280dp"
+            app:srcCompat="@drawable/susasana"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:text="Kintan Buffet, Central Park"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+        <TextView
+            android:text="Jl. Letjen S. Parman, Kb. Jeruk, Kota Jakarta Barat"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <TextView
+            android:text="Eatery Type: Buffet"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+        <TextView
+            android:text="Opening Hours: Mon-Sun (10am-22pm)"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/menu"
+            android:text="Menu"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/listreview"
+                android:text="List Review"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/menu"/>
+            <Button
+                android:text="Direction"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/listreview"/>
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/menu"
+            android:numStars="5" />
+        <TextView
+            android:text="4.3"
+            android:textSize="40sp"
+            android:textColor="#008000"
+            android:textAlignment="center"
+            android:layout_toRightOf="@id/ratingBar"
+            android:layout_below="@id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <Button
+            android:text="Booking"
+            android:textSize="20sp"
+            android:background="#ffa500"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

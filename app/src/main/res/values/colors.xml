@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#cc7000</color>
+    <color name="colorPrimaryDark">#cc7000</color>
+    <color name="colorAccent">#cc7000</color>
+    <color name="colorhome">#ff0000</color>
+    <color name="colorhistory">#000000</color>
+    <color name="coloraccount">#008000</color>
+    <color name="colorvoucher">#008000</color>
+    <color name="colorfavorite">#0000ff</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhiteTransparent">#80ffffff</color>
+</resources>
