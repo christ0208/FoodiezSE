@@ -1,6 +1,7 @@
 package com.example.index;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -33,6 +35,7 @@ import java.util.Map;
 public class HomeFragment extends Fragment {
     ArrayList<Restaurant> restaurants = new ArrayList<>();
 
+    ImageView imageSearch;
     RecyclerView restaurantGrid;
     FirebaseFirestore firestore;
    public HomeFragment() {
@@ -43,12 +46,22 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         firestore = FirebaseFirestore.getInstance();
+
+        imageSearch = v.findViewById(R.id.image_search);
+        imageSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), SearchActivity.class));
+            }
+        });
+
         restaurantGrid = v.findViewById(R.id.restaurant_grid);
         fetchRestaurants(v);
         return v;
     }
 
     private void fetchRestaurants(final View v) {
+       restaurants.clear();
         firestore.collection("restaurant")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
