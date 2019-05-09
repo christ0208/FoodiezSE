@@ -16,6 +16,7 @@ import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.example.index.Adapter.RestaurantGridViewAdapter;
 import com.example.index.Objects.Restaurant;
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
 
     ImageView imageSearch;
     RecyclerView restaurantGrid;
+    ProgressBar progressBar;
     FirebaseFirestore firestore;
    public HomeFragment() {
    }
@@ -46,6 +48,8 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         firestore = FirebaseFirestore.getInstance();
+
+        progressBar = v.findViewById(R.id.progress_bar);
 
         imageSearch = v.findViewById(R.id.image_search);
         imageSearch.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +75,8 @@ public class HomeFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Map map = document.getData();
                                 Restaurant r = new Restaurant(Integer.parseInt(map.get("id").toString()),
-                                        map.get("name").toString(), map.get("url").toString(), map.get("address").toString());
+                                        map.get("name").toString(), map.get("url").toString(), map.get("address").toString(),
+                                        map.get("eatery_type").toString(), map.get("opening_day").toString(), map.get("opening_hours").toString());
                                 restaurants.add(r);
                             }
                             setGridView(v);
@@ -86,5 +91,6 @@ public class HomeFragment extends Fragment {
         RecyclerView.LayoutManager manager = new GridLayoutManager(v.getContext(), 2, GridLayoutManager.VERTICAL, false);
         restaurantGrid.setLayoutManager(manager);
         restaurantGrid.setAdapter(new RestaurantGridViewAdapter(v.getContext(), restaurants));
+        progressBar.setVisibility(View.GONE);
     }
 }

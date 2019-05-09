@@ -11,50 +11,44 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.index.Objects.History;
+import com.example.index.Objects.Favorite;
 import com.example.index.R;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryViewHolder> {
+public class FavoriteRecyclerViewAdapter extends RecyclerView.Adapter<FavoriteViewHolder> {
 
+    private ArrayList<Favorite> favorites = new ArrayList<>();
     private Context context;
-    private ArrayList<History> histories;
-    public HistoryRecyclerViewAdapter(Context context, ArrayList<History> histories) {
+
+    public FavoriteRecyclerViewAdapter(ArrayList<Favorite> favorites, Context context) {
+        this.favorites = favorites;
         this.context = context;
-        this.histories = histories;
     }
 
     @NonNull
     @Override
-    public HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.history_rv_item, viewGroup, false);
-        HistoryViewHolder holder = new HistoryViewHolder(view);
+    public FavoriteViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(context).inflate(R.layout.favorite_rv_view_item, viewGroup, false);
+        FavoriteViewHolder holder = new FavoriteViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final HistoryViewHolder historyViewHolder, int i) {
-        final History h = histories.get(i);
-        new DownloadImageFromInternet(historyViewHolder.imageView).execute(h.getRestaurant_url());
-        historyViewHolder.lblRestaurantName.setText(h.getRestaurant_name());
-        historyViewHolder.lblDate.setText(h.getCreated_at());
-        historyViewHolder.ratingBar.setRating(h.getRating());
-        historyViewHolder.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                historyViewHolder.ratingBar.setRating(h.getRating());
-            }
-        });
+    public void onBindViewHolder(@NonNull FavoriteViewHolder favoriteViewHolder, int i) {
+        Favorite f = favorites.get(i);
+        favoriteViewHolder.restaurantName.setText(f.getRestaurantName());
+        favoriteViewHolder.restaurantAddress.setText(f.getRestaurantAddress());
+        new DownloadImageFromInternet(favoriteViewHolder.imageView).execute(f.getRestaurantUrl());
     }
 
     @Override
     public int getItemCount() {
-        return histories.size();
+        return favorites.size();
     }
 
     private class DownloadImageFromInternet extends AsyncTask<String, Void, Bitmap> {
@@ -86,17 +80,16 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryView
     }
 }
 
-class HistoryViewHolder extends RecyclerView.ViewHolder{
-
+class FavoriteViewHolder extends RecyclerView.ViewHolder{
+    RelativeLayout layout;
     ImageView imageView;
-    TextView lblRestaurantName;
-    TextView lblDate;
-    RatingBar ratingBar;
-    public HistoryViewHolder(@NonNull View itemView) {
+    TextView restaurantName, restaurantAddress;
+
+    public FavoriteViewHolder(@NonNull View itemView) {
         super(itemView);
+        layout = itemView.findViewById(R.id.layout_click);
         imageView = itemView.findViewById(R.id.imageView);
-        lblRestaurantName = itemView.findViewById(R.id.restaurant_name);
-        lblDate = itemView.findViewById(R.id.date);
-        ratingBar = itemView.findViewById(R.id.ratingBar);
+        restaurantName = itemView.findViewById(R.id.restaurant_name);
+        restaurantAddress = itemView.findViewById(R.id.restaurant_address);
     }
 }

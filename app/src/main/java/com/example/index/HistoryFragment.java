@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.index.Adapter.HistoryRecyclerViewAdapter;
@@ -33,10 +34,11 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class HistoryFragment extends Fragment {
-    private FirebaseAuth mAuth;
     private TextView lblNotLogin;
     private RecyclerView historyRvView;
+    private ProgressBar progressBar;
     private ArrayList<History> histories = new ArrayList<>();
+    private FirebaseAuth mAuth;
     private ArrayList<Restaurant> restaurants = new ArrayList<>();
 
     private FirebaseFirestore firestore;
@@ -55,8 +57,12 @@ public class HistoryFragment extends Fragment {
         firestore = FirebaseFirestore.getInstance();
         lblNotLogin = v.findViewById(R.id.lbl_not_login);
         historyRvView = v.findViewById(R.id.history_rv_view);
+        progressBar = v.findViewById(R.id.progress_bar);
 
-        if(mAuth.getCurrentUser() == null) historyRvView.setVisibility(View.GONE);
+        if(mAuth.getCurrentUser() == null) {
+            historyRvView.setVisibility(View.GONE);
+            progressBar.setVisibility(View.GONE);
+        }
         else {
             lblNotLogin.setVisibility(View.GONE);
             fetchRestaurants(v);
@@ -78,9 +84,13 @@ public class HistoryFragment extends Fragment {
                                 Map m = snapshot.getData();
                                 History h = new History(Integer.parseInt(m.get("id").toString()), 
                                         convertToRestaurantName(Integer.parseInt(m.get("restaurant_id").toString())),
+                                        convertToRestaurantUrl(Integer.parseInt(m.get("restaurant_id").toString())),
                                         Float.parseFloat(m.get("rating").toString()),
                                         m.get("created_at").toString());
-                                histories.add(h);
+
+                                if(mAuth.getCurrentUser() != null &&
+                                        m.get("user_id").toString().equals(mAuth.getCurrentUser().getUid()))
+                                    histories.add(h);
                             }
 
                             setRecyclerView(v);
@@ -93,6 +103,7 @@ public class HistoryFragment extends Fragment {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(v.getContext());
         historyRvView.setLayoutManager(manager);
         historyRvView.setAdapter(new HistoryRecyclerViewAdapter(v.getContext(), histories));
+        progressBar.setVisibility(View.GONE);
     }
 
     private void fetchRestaurants(final View v) {
@@ -106,8 +117,9 @@ public class HistoryFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Map map = document.getData();
                                 Restaurant r = new Restaurant(Integer.parseInt(map.get("id").toString()),
-                                        map.get("name").toString(), map.get("url").toString(), map.get("address").toString());
-                                restaurants.add(r);
+                                        map.get("name").toString(), map.get("url").toString(), map.get("address").toString(),
+                                        map.get("eatery_type").toString(), map.get("opening_day").toString(), map.get("opening_hours").toString());
+                                    restaurants.add(r);
                             }
                             fetchHistory(v);
                         } else {
@@ -121,6 +133,14 @@ public class HistoryFragment extends Fragment {
         for (Restaurant r:
              restaurants) {
             if(r.getId() == restaurant_id) return r.getName();
+        }
+        return "";
+    }
+
+    private String convertToRestaurantUrl(Integer restaurant_id) {
+        for (Restaurant r:
+                restaurants) {
+            if(r.getId() == restaurant_id) return r.getUrl();
         }
         return "";
     }

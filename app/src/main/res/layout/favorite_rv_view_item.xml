@@ -4,6 +4,7 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
+        android:id="@+id/layout_click"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
@@ -25,29 +26,19 @@
             android:layout_toRightOf="@id/imageView"
             android:text="Kintan Buffet"
             android:textColor="#333"
-            android:textSize="20dp"
+            android:textSize="28dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/restaurant_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/restaurant_name"
             android:layout_toEndOf="@id/imageView"
             android:layout_toRightOf="@id/imageView"
             android:layout_weight="1"
-            android:text="12 Apr 2999, 10.00am"
+            android:text="Location: Mall Central Park, Jakarta Barat Jl. Letjen S. Parman No.28"
             android:textColor="#333"
             android:textSize="16dp" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/date"
-            android:layout_toEndOf="@id/imageView"
-            android:layout_toRightOf="@id/imageView" />
-
     </RelativeLayout>
-
 </LinearLayout>
