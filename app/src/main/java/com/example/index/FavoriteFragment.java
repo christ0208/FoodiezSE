@@ -81,6 +81,7 @@ public class FavoriteFragment extends Fragment {
     private void fetchFavorites(final View v){
         favorites.clear();
         firestore.collection("favorite")
+                .whereEqualTo("user_id", mAuth.getCurrentUser().getUid())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

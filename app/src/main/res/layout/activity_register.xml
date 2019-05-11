@@ -24,6 +24,7 @@
             android:id="@+id/txt_name"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:inputType="textPersonName"
             android:fontFamily="sans-serif-condensed"
             android:hint="Name"
             android:textSize="23dip"/>
@@ -32,6 +33,7 @@
             android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:inputType="textEmailAddress"
             android:fontFamily="sans-serif-condensed"
             android:textSize="23dip"
             android:hint="Email Address"/>
@@ -40,6 +42,7 @@
             android:id="@+id/txt_password"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:inputType="textPassword"
             android:fontFamily="sans-serif-condensed"
             android:textSize="23dip"
             android:hint="Password"/>
@@ -52,6 +55,7 @@
             android:textSize="11dip" />
 
         <CheckBox
+            android:id="@+id/cb_agreement"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_gravity="center"
