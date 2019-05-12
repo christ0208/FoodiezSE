@@ -3,8 +3,25 @@ package com.example.index.Objects;
 public class Restaurant {
     private int id;
     private String name, url, address, eateryType, openingDay, openingHours;
+    private Float latitude, longitude;
 
-    public Restaurant(int id, String name, String url, String address, String eateryType, String openingDay, String openingHours) {
+    public Float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
+    }
+
+    public Restaurant(int id, String name, String url, String address, String eateryType, String openingDay, String openingHours, Float latitude, Float longitude) {
         this.id = id;
         this.name = name;
         this.url = url;
@@ -12,6 +29,8 @@ public class Restaurant {
         this.eateryType = eateryType;
         this.openingDay = openingDay;
         this.openingHours = openingHours;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {

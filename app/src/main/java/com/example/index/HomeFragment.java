@@ -27,6 +27,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Map;
 
 
@@ -76,15 +78,30 @@ public class HomeFragment extends Fragment {
                                 Map map = document.getData();
                                 Restaurant r = new Restaurant(Integer.parseInt(map.get("id").toString()),
                                         map.get("name").toString(), map.get("url").toString(), map.get("address").toString(),
-                                        map.get("eatery_type").toString(), map.get("opening_day").toString(), map.get("opening_hours").toString());
+                                        map.get("eatery_type").toString(), map.get("opening_day").toString(), map.get("opening_hours").toString(),
+                                        Float.parseFloat(map.get("lat").toString()), Float.parseFloat(map.get("long").toString()));
                                 restaurants.add(r);
                             }
+                            sortRestaurantLocation();
                             setGridView(v);
                         } else {
                             Log.d("Error", "Error getting documents: ", task.getException());
                         }
                     }
                 });
+    }
+
+    private void sortRestaurantLocation() {
+        Collections.sort(restaurants, new Comparator<Restaurant>() {
+            @Override
+            public int compare(Restaurant o1, Restaurant o2) {
+                return phytagoras(o1) - phytagoras(o2);
+            }
+
+            private int phytagoras(Restaurant o1) {
+                return (int) Math.round(Math.sqrt(o1.getLatitude() + o1.getLongitude()));
+            }
+        });
     }
 
     private void setGridView(View v) {

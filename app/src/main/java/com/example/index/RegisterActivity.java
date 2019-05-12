@@ -57,10 +57,11 @@ public class RegisterActivity extends AppCompatActivity {
                                         user.put("email", txtEmail.getText().toString());
 
                                         db.collection("users")
-                                                .add(user)
-                                                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                                .document(mAuth.getCurrentUser().getUid())
+                                                .update(user)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
-                                                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                    public void onComplete(@NonNull Task<Void> task) {
                                                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                                     }
                                                 });
