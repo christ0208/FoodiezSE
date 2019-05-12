@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,63 +15,52 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:layout_marginLeft="5dp"
-            android:text="Sign up to Foodiez"
+            android:text="Account Setting"
             android:textColor="#2D2D2D"
             android:textSize="40dip"
             android:textStyle="bold" />
-
-        <EditText
-            android:layout_marginTop="10dp"
-            android:id="@+id/txt_name"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:inputType="textPersonName"
-            android:fontFamily="sans-serif-condensed"
-            android:hint="Name"
-            android:textSize="23dip"/>
-
         <EditText
             android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:inputType="textEmailAddress"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="23dip"
-            android:hint="Email Address"/>
+            android:hint="Email Address"
+            android:textSize="23dip"/>
 
         <EditText
-            android:id="@+id/txt_password"
+            android:id="@+id/txt_currpassword"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:inputType="textPassword"
             android:fontFamily="sans-serif-condensed"
             android:textSize="23dip"
-            android:hint="Password"/>
+            android:hint="Current Password"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Should have at least 6 characters including an upper-case letter and a digit"
-            android:textSize="11dip" />
-
-        <CheckBox
-            android:id="@+id/cb_agreement"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:fontFamily="sans-serif"
-            android:text="I agree to Foodiez Terms of Service, Privacy Policiy and Content Policies"
-            android:textSize="11dip" />
+        <EditText
+            android:id="@+id/txt_newpassword"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:inputType="textPassword"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="23dip"
+            android:hint="New Password"/>
+        <EditText
+            android:id="@+id/txt_renewpassword"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:inputType="textPassword"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="23dip"
+            android:hint="Re-Enter New Password"/>
         <Button
-            android:id="@+id/btn_register"
+            android:layout_marginTop="10dp"
+            android:id="@+id/btn_savechanges"
             android:background="@drawable/registerbutton"
             android:layout_width="390dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:fontFamily="sans-serif-medium"
-            android:text="Register"/>
-
+            android:text="Save Changes"
+            android:fontFamily="sans-serif-medium"/>
     </LinearLayout>
-
 </ScrollView>
