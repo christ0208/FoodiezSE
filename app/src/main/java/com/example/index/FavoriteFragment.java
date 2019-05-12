@@ -80,27 +80,32 @@ public class FavoriteFragment extends Fragment {
 
     private void fetchFavorites(final View v){
         favorites.clear();
-        firestore.collection("favorite")
-                .whereEqualTo("user_id", mAuth.getCurrentUser().getUid())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for (QueryDocumentSnapshot document:
-                                    task.getResult()) {
-                                Map map = document.getData();
-                                Favorite f = new Favorite(Integer.parseInt(map.get("id").toString()),
-                                        convertToRestaurantName(Integer.parseInt(map.get("restaurant_id").toString())),
-                                        convertToRestaurantUrl(Integer.parseInt(map.get("restaurant_id").toString())),
-                                        convertToRestaurantAddress(Integer.parseInt(map.get("restaurant_id").toString())),
-                                        map.get("user_id").toString());
-                                favorites.add(f);
+        if(mAuth.getCurrentUser() != null) {
+            firestore.collection("favorite")
+                    .whereEqualTo("user_id", mAuth.getCurrentUser().getUid())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document :
+                                        task.getResult()) {
+                                    Map map = document.getData();
+                                    Favorite f = new Favorite(Integer.parseInt(map.get("id").toString()),
+                                            convertToRestaurantName(Integer.parseInt(map.get("restaurant_id").toString())),
+                                            convertToRestaurantUrl(Integer.parseInt(map.get("restaurant_id").toString())),
+                                            convertToRestaurantAddress(Integer.parseInt(map.get("restaurant_id").toString())),
+                                            map.get("user_id").toString());
+                                    favorites.add(f);
+                                }
+                                setRecyclerView(v);
                             }
-                            setRecyclerView(v);
                         }
-                    }
-                });
+                    });
+        }
+        else{
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     private void fetchRestaurants(final View v) {
