@@ -39,7 +39,7 @@ public class LoginActivityTest {
         onView(withId(R.id.txt_password)).perform(typeText(password), closeSoftKeyboard());
         onView(withId(R.id.btn_login)).perform(click());
 
-        new Timer().schedule(new PeriodicTask());
+//        new Timer().schedule(new PeriodicTask());
     }
 
 }
