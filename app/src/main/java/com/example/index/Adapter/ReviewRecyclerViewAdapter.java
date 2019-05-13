@@ -38,12 +38,18 @@ public class ReviewRecyclerViewAdapter extends RecyclerView.Adapter<ReviewViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReviewViewHolder reviewViewHolder, int i) {
-        Review r = reviews.get(i);
+    public void onBindViewHolder(@NonNull final ReviewViewHolder reviewViewHolder, int i) {
+        final Review r = reviews.get(i);
         new DownloadImageFromInternet(reviewViewHolder.imageRestaurant).execute(r.getRestaurantUrl());
         reviewViewHolder.lblRestaurantName.setText(r.getRestaurantName());
         reviewViewHolder.lblRestaurantReview.setText("Review:\n " + r.getDescription());
         reviewViewHolder.ratingBar.setRating(r.getRating());
+        reviewViewHolder.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                reviewViewHolder.ratingBar.setRating(r.getRating());
+            }
+        });
     }
 
     @Override
