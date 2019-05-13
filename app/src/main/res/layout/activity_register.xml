@@ -62,7 +62,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:fontFamily="sans-serif"
-            android:text="I agree to Foodiez Terms of Service, Privacy Policiy and Content Policies"
+            android:text="I agree to Foodiez Terms of Service, Privacy Policy and Content Policies"
             android:textSize="11dip" />
         <Button
             android:id="@+id/btn_register"

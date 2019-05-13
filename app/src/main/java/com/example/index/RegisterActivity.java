@@ -37,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         registerVariables();
         registerListeners();
@@ -55,13 +56,16 @@ public class RegisterActivity extends AppCompatActivity {
                                         Map<String, Object> user = new HashMap<>();
                                         user.put("name", txtName.getText().toString());
                                         user.put("email", txtEmail.getText().toString());
+                                        user.put("location", "");
+                                        user.put("phone_number", "");
 
-                                        db.collection("users")
+                                        db.collection("user")
                                                 .document(mAuth.getCurrentUser().getUid())
-                                                .update(user)
+                                                .set(user)
                                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
+                                                        mAuth.signOut();
                                                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                                     }
                                                 });

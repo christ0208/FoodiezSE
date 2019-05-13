@@ -10,4 +10,5 @@
     <color name="colorfavorite">#0000ff</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparent">#80ffffff</color>
+    <color name="colorWhiteBlurry">#D9FFFFFF</color>
 </resources>
