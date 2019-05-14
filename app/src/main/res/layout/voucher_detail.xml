@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/voucher"
+        android:background="@mipmap/voucher"
+        android:layout_width="412dp"
+        android:layout_height="120dp"/>
+    <TextView
+        android:id="@+id/voucherdetail"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="20dp"
+        android:text="Discount at Kintan Buffet up to 20%"
+        android:textColor="#000"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18dip"
+        android:layout_below="@id/voucher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/detailbar"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/voucherdetail"
+        android:layout_below="@+id/voucherdetail"
+        android:layout_centerHorizontal="true"
+        android:layout_width="370dp"
+        android:layout_height="52dp"/>
+    <ImageView
+        android:id="@+id/dateicon"
+        android:background="@drawable/time"
+        android:layout_below="@+id/voucherdetail"
+        android:layout_marginTop="23dp"
+        android:layout_marginLeft="42dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+    <TextView
+        android:id="@+id/vouchervalid"
+        android:fontFamily="sans-serif-medium"
+        android:text="Valid until"
+        android:textSize="11dip"
+        android:layout_toRightOf="@+id/dateicon"
+        android:layout_below="@id/voucherdetail"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="16 May 2019"
+        android:textColor="#000"
+        android:fontFamily="sans-serif-medium"
+        android:layout_below="@id/vouchervalid"
+        android:layout_toRightOf="@id/dateicon"
+        android:layout_marginLeft="11dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/mintransicon"
+        android:layout_below="@+id/voucherdetail"
+        android:layout_toRightOf="@+id/vouchervalid"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/money"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+    <TextView
+        android:id="@+id/minimumtransaction"
+        android:layout_below="@+id/voucherdetail"
+        android:layout_toRightOf="@+id/mintransicon"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="11dip"
+        android:text="Minimum transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="Rp.300.000"
+        android:textColor="#000"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="11dp"
+        android:layout_below="@+id/minimumtransaction"
+        android:layout_toRightOf="@+id/mintransicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/orangebar"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/detailbar"
+        android:background="@drawable/bar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <TextView
+        android:id="@+id/TAC"
+        android:layout_below="@+id/orangebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Term and Condition"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dip"/>
+    <ImageView
+        android:id="@+id/orangebar1"
+        android:layout_below="@+id/TAC"
+        android:background="@drawable/bar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_below="@id/orangebar1"
+        android:layout_width="match_parent"
+        android:layout_height="290dp">
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:text="1. Dilarang dijual"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+    <Button
+        android:layout_below="@id/scroll"
+        android:id="@+id/btn_redeem"
+        android:background="@drawable/registerbutton"
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-medium"
+        android:text="Redeem Voucher"/>
+</RelativeLayout>
