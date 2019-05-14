@@ -44,7 +44,6 @@ public class AccountFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
-    private FrameLayout layoutNotLogin;
     private LinearLayout layoutSetting;
     private Button btnLogin, btnSignout;
     private TextView lblFullName, lblLocation;
@@ -66,8 +65,8 @@ public class AccountFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
-        layoutNotLogin = v.findViewById(R.id.layout_not_login);
-        btnLogin = v.findViewById(R.id.btn_login);
+//        layoutNotLogin = v.findViewById(R.id.layout_not_login);
+//        btnLogin = v.findViewById(R.id.btn_login);
 //        btnSignout = v.findViewById(R.id.btn_signout);
 
         lblFullName = v.findViewById(R.id.fullname);
@@ -76,19 +75,21 @@ public class AccountFragment extends Fragment {
 
         reviewRvView = v.findViewById(R.id.review_rv_view);
 
-        if(mAuth.getCurrentUser() == null) {}
+        if(mAuth.getCurrentUser() == null) {
+            startActivity(new Intent(v.getContext(), LoginActivity.class));
+        }
         else {
-            layoutNotLogin.setVisibility(View.GONE);
+//            layoutNotLogin.setVisibility(View.GONE);
             setAccount();
             fetchRestaurants(v);
         }
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), LoginActivity.class));
-            }
-        });
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(v.getContext(), LoginActivity.class));
+//            }
+//        });
 //
 //        btnSignout.setOnClickListener(new View.OnClickListener() {
 //            @Override
