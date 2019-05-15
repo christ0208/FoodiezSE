@@ -1,6 +1,7 @@
 package com.example.index.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -11,10 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.index.Objects.Voucher;
 import com.example.index.R;
+import com.example.index.VoucherDetailActivity;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -38,10 +41,19 @@ public class VoucherRecyclerViewAdapter extends RecyclerView.Adapter<VoucherView
 
     @Override
     public void onBindViewHolder(@NonNull VoucherViewHolder voucherViewHolder, int i) {
-        Voucher v = vouchers.get(i);
+        final Voucher v = vouchers.get(i);
         new DownloadImageFromInternet(voucherViewHolder.imageView).execute(v.getUrl());
         voucherViewHolder.minTransaction.setText("Minimal Transaksi: Rp. " + Integer.toString(v.getMin_transaction()));
         voucherViewHolder.date.setText("Berlaku Hingga: " + v.getEnd_date());
+
+        voucherViewHolder.layoutVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, VoucherDetailActivity.class);
+                i.putExtra("voucherId", v.getVoucherId());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -79,12 +91,13 @@ public class VoucherRecyclerViewAdapter extends RecyclerView.Adapter<VoucherView
 }
 
 class VoucherViewHolder extends RecyclerView.ViewHolder {
-
+    RelativeLayout layoutVoucher;
     ImageView imageView;
     TextView minTransaction, date;
 
     public VoucherViewHolder(@NonNull View itemView) {
         super(itemView);
+        layoutVoucher = itemView.findViewById(R.id.layout_voucher);
         imageView = itemView.findViewById(R.id.imageView);
         minTransaction = itemView.findViewById(R.id.min_transaction);
         date = itemView.findViewById(R.id.date);

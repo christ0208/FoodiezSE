@@ -99,13 +99,13 @@ public class VoucherFragment extends Fragment {
                                 Map map = document.getData();
 
                                 Voucher v = document.toObject(Voucher.class);
-
+                                v.setVoucherId(document.getId());
 
 //                                Voucher v = new Voucher(map.get("end_date").toString(),
 //                                        Integer.parseInt(map.get("min_transaction").toString()),
 //                                        Integer.parseInt(map.get("discount").toString()) / 100,
 //                                        map.get("terms_conditions").toString(),
-//                                        map.get("url").toString(),
+//                                        map.get("url").toString()
 //                                        );
                                 vouchers.add(v);
                             }

@@ -3,17 +3,28 @@ package com.example.index.Objects;
 import java.util.ArrayList;
 
 public class Voucher {
+    private String voucherId;
     private String end_date;
     private int min_transaction;
     private float discount;
     private String terms_conditions;
     private String url;
+
+    public String getVoucherId() {
+        return voucherId;
+    }
+
+    public void setVoucherId(String voucherId) {
+        this.voucherId = voucherId;
+    }
+
     private ArrayList<String> restaurant_name;
 
     public Voucher() {
     }
 
-    public Voucher(String end_date, int min_transaction, float discount, String terms_conditions, String url, ArrayList<String> restaurant_name) {
+    public Voucher(String voucherId, String end_date, int min_transaction, float discount, String terms_conditions, String url, ArrayList<String> restaurant_name) {
+        this.voucherId = voucherId;
         this.end_date = end_date;
         this.min_transaction = min_transaction;
         this.discount = discount;
