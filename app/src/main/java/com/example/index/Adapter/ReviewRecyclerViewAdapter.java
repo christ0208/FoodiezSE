@@ -94,7 +94,7 @@ class ReviewViewHolder extends RecyclerView.ViewHolder{
     public ReviewViewHolder(@NonNull View itemView) {
         super(itemView);
         imageRestaurant = itemView.findViewById(R.id.listpic);
-        lblRestaurantName = itemView.findViewById(R.id.restaurant_name);
+        lblRestaurantName = itemView.findViewById(R.id.menu_name);
         lblRestaurantReview = itemView.findViewById(R.id.restaurant_review);
         ratingBar = itemView.findViewById(R.id.rating_bar);
     }

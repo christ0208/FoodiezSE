@@ -89,7 +89,7 @@ class FavoriteViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         layout = itemView.findViewById(R.id.layout_click);
         imageView = itemView.findViewById(R.id.imageView);
-        restaurantName = itemView.findViewById(R.id.restaurant_name);
+        restaurantName = itemView.findViewById(R.id.menu_name);
         restaurantAddress = itemView.findViewById(R.id.restaurant_address);
     }
 }

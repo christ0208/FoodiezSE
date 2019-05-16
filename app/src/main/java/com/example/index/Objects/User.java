@@ -1,6 +1,16 @@
 package com.example.index.Objects;
 
 public class User {
+    private String uid;
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
     private String name;
     private String email;
     private String location;

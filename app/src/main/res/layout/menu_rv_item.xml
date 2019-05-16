@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/menu_image"
+            android:layout_marginLeft="3dp"
+            android:background="@mipmap/kintan"
+            android:layout_marginTop="4dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            />
+        <TextView
+            android:id="@+id/menu_name"
+            android:text="Kintan Buffet"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#000"
+            android:textSize="20dip"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_toRightOf="@+id/menu_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/menu_price"
+            android:layout_below="@id/menu_name"
+            android:layout_toRightOf="@id/menu_image"
+            android:layout_marginLeft="10dp"
+            android:textSize="15dip"
+            android:text="Price"
+            android:fontFamily="sans-serif-medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>

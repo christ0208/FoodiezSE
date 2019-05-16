@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RestaurantMenuActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/msg"
+            android:text="Here is Your Menu!"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="28dip"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/menu_rv_view"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/msg"
+            android:layout_width="400dp"
+            android:layout_height="500dp" />
+    </RelativeLayout>
+
+</LinearLayout>

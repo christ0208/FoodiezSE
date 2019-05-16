@@ -1,7 +1,7 @@
 package com.example.index.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -11,18 +11,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.index.Objects.Restaurant;
 import com.example.index.R;
+import com.example.index.RestaurantInfoActivity;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class RestaurantGridViewAdapter extends RecyclerView.Adapter<RestaurantGridViewAdapter.RecordHolder> {
     Context context;
@@ -43,9 +41,17 @@ public class RestaurantGridViewAdapter extends RecyclerView.Adapter<RestaurantGr
 
     @Override
     public void onBindViewHolder(@NonNull RecordHolder recordHolder, int i) {
-        Restaurant r = data.get(i);
+        final Restaurant r = data.get(i);
         new DownloadImageFromInternet(recordHolder.restaurantImage).execute(r.getUrl());
         recordHolder.restaurantName.setText(r.getName());
+        recordHolder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, RestaurantInfoActivity.class);
+                i.putExtra("restaurantId", r.getId());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -55,13 +61,15 @@ public class RestaurantGridViewAdapter extends RecyclerView.Adapter<RestaurantGr
 
 
     class RecordHolder extends RecyclerView.ViewHolder{
+        LinearLayout layout;
         ImageView restaurantImage;
         TextView restaurantName;
 
         public RecordHolder(@NonNull View itemView) {
             super(itemView);
+            layout = itemView.findViewById(R.id.layout_restaurant);
             restaurantImage = itemView.findViewById(R.id.restaurant_image);
-            restaurantName = itemView.findViewById(R.id.restaurant_name);
+            restaurantName = itemView.findViewById(R.id.menu_name);
         }
     }
 

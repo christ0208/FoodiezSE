@@ -23,7 +23,7 @@
             android:layout_height="100dp"
             />
         <TextView
-            android:id="@+id/restaurant_name"
+            android:id="@+id/menu_name"
             android:text="Kintan Buffet"
             android:fontFamily="sans-serif-medium"
             android:textColor="#000"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"/>
         <RatingBar
             android:id="@+id/rating_bar"
-            android:layout_below="@id/restaurant_name"
+            android:layout_below="@id/menu_name"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="150dp"
             android:numStars="5"

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RestaurantInfoReviewListActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/orangebar"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/bar"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"/>
+        <TextView
+            android:id="@+id/feeds"
+            android:layout_below="@+id/orangebar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Review From Customer"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dip"/>
+        <ImageView
+            android:layout_below="@+id/feeds"
+            android:background="@drawable/bar"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/review_rv_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feeds"
+            android:layout_margin="16dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

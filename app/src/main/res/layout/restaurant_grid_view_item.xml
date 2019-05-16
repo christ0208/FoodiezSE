@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:id="@+id/layout_restaurant">
 
     <ImageView
         android:id="@+id/restaurant_image"
@@ -11,7 +12,7 @@
         android:layout_height="200dp" />
 
     <TextView
-        android:id="@+id/restaurant_name"
+        android:id="@+id/menu_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
