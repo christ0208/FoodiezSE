@@ -24,22 +24,6 @@
         android:layout_width="360dp"
         android:layout_height="8dp" />
     <ImageView
-        android:rotation="270dp"
-        android:layout_toLeftOf="@+id/choose_payment"
-        android:layout_below="@+id/msgbar"
-        android:background="@drawable/bar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="8dp"
-        android:layout_height="470dp" />
-    <ImageView
-        android:rotation="270dp"
-        android:layout_toRightOf="@+id/choose_payment"
-        android:layout_below="@+id/msgbar"
-        android:background="@drawable/bar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="8dp"
-        android:layout_height="470dp" />
-    <ImageView
         android:layout_below="@id/choose_payment"
         android:background="@drawable/bar"
         android:layout_centerHorizontal="true"
@@ -86,16 +70,17 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <RadioButton
             android:id="@+id/transferbank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:layout_marginRight="200dp"
-            android:text="Trasnfer Bank"
-            android:textStyle="bold"
             android:fontFamily="sans-serif-medium"
+            android:text="Trasnfer Bank"
             android:textColor="@color/colorPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textStyle="bold" />
         <RadioButton
             android:layout_marginTop="50dp"
             android:text="Mobile Banking"
@@ -133,4 +118,5 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-medium"
         android:text="Continue"/>
+
 </RelativeLayout>

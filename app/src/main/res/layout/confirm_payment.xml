@@ -33,22 +33,6 @@
         android:layout_width="365dp"
         android:layout_height="9dp" />
     <ImageView
-        android:rotation="270dp"
-        android:layout_toLeftOf="@+id/confirmationdetail"
-        android:layout_below="@+id/msgbar"
-        android:background="@drawable/bar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="8dp"
-        android:layout_height="478dp" />
-    <ImageView
-        android:rotation="270dp"
-        android:layout_toRightOf="@+id/confirmationdetail"
-        android:layout_below="@+id/msgbar"
-        android:background="@drawable/bar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="8dp"
-        android:layout_height="478dp" />
-    <ImageView
         android:layout_below="@id/confirmationdetail"
         android:background="@drawable/bar"
         android:layout_centerHorizontal="true"
@@ -232,8 +216,4 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-medium"
         android:text="Confirm"/>
-    <ImageView
-        android:background=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </RelativeLayout>

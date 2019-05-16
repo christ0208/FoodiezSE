@@ -24,22 +24,6 @@
         android:layout_width="365dp"
         android:layout_height="9dp" />
     <ImageView
-        android:rotation="270dp"
-        android:layout_toLeftOf="@+id/payment_detail"
-        android:layout_below="@+id/msgbar"
-        android:background="@drawable/bar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="8dp"
-        android:layout_height="465dp" />
-    <ImageView
-        android:rotation="270dp"
-        android:layout_toRightOf="@+id/payment_detail"
-        android:layout_below="@+id/msgbar"
-        android:background="@drawable/bar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="8dp"
-        android:layout_height="465dp" />
-    <ImageView
         android:layout_below="@id/payment_detail"
         android:background="@drawable/bar"
         android:layout_centerHorizontal="true"
