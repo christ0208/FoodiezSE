@@ -3,5 +3,237 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+    <ImageView
+        android:id="@+id/msgbar"
+        android:background="@drawable/bargrey"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <TextView
+        android:layout_marginTop="15dp"
+        android:text="Confirm Your Payment"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22dip"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageButton
+        android:id="@+id/confirmationdetail"
+        android:background="@drawable/bargrey"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/msgbar"
+        android:layout_width="355dp"
+        android:layout_height="460dp"/>
+    <ImageView
+        android:layout_below="@+id/msgbar"
+        android:background="@drawable/bar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="365dp"
+        android:layout_height="9dp" />
+    <ImageView
+        android:rotation="270dp"
+        android:layout_toLeftOf="@+id/confirmationdetail"
+        android:layout_below="@+id/msgbar"
+        android:background="@drawable/bar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="8dp"
+        android:layout_height="478dp" />
+    <ImageView
+        android:rotation="270dp"
+        android:layout_toRightOf="@+id/confirmationdetail"
+        android:layout_below="@+id/msgbar"
+        android:background="@drawable/bar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="8dp"
+        android:layout_height="478dp" />
+    <ImageView
+        android:layout_below="@id/confirmationdetail"
+        android:background="@drawable/bar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="365dp"
+        android:layout_height="8dp" />
+    <TextView
+        android:id="@+id/nama"
+        android:layout_below="@+id/msgbar"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="30dp"
+        android:text="Name :"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/nama_booking"
+        android:layout_below="@+id/msgbar"
+        android:layout_toRightOf="@id/nama"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginBottom="30dp"
+        android:text="Henky Tornado"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="19dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/dateorder"
+        android:layout_below="@+id/nama"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="45dp"
+        android:text="Date Order :"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/dateorder_booking"
+        android:layout_toRightOf="@+id/dateorder"
+        android:layout_below="@+id/nama"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="73dp"
+        android:text="25 - Mei - 2019"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/timeorder"
+        android:layout_below="@+id/dateorder"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="30dp"
+        android:text="Time Order :"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/timeorder_booking"
+        android:layout_toRightOf="@+id/dateorder"
+        android:layout_below="@+id/dateorder"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="73dp"
+        android:text="17.40 WIB"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/jumlahorang"
+        android:layout_below="@+id/timeorder"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="30dp"
+        android:text="Jumlah Orang :"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/jumlahorang_booking"
+        android:layout_toRightOf="@+id/dateorder"
+        android:layout_below="@+id/timeorder"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="73dp"
+        android:text="4 Orang"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/eateryname"
+        android:layout_below="@+id/jumlahorang"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="30dp"
+        android:text="Eatery Name :"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/eateryname_booking"
+        android:layout_toRightOf="@+id/dateorder"
+        android:layout_below="@+id/jumlahorang"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="73dp"
+        android:text="Kintan Buffet
+        [Central Park]"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/paymentmethod"
+        android:layout_below="@+id/eateryname"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="30dp"
+        android:text="Payment Method :"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/paymentmethod_booking"
+        android:layout_toRightOf="@+id/dateorder"
+        android:layout_below="@+id/eateryname"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="73dp"
+        android:text="Transfer Bank"
+        android:textSize="18dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/total"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/paymentmethod"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="45dp"
+        android:text="Total :"
+        android:textSize="25dip"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/fulltotal"
+        android:layout_below="@id/paymentmethod"
+        android:background="@drawable/bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_width="330dp"
+        android:layout_height="60dp" />
+    <TextView
+        android:layout_below="@id/total"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:textSize="35dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="10dp"
+        android:text="Rp.120.000,00"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/confirmationdetail"
+        android:id="@+id/btn_confirmpayment"
+        android:background="@drawable/registerbutton"
+        android:textStyle="bold"
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-medium"
+        android:text="Confirm"/>
+    <ImageView
+        android:background=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
