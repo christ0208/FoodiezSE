@@ -1,5 +1,6 @@
 package com.example.index;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -26,6 +27,7 @@ public class VoucherDetailActivity extends AppCompatActivity {
     ImageView imageView;
     TextView lblVoucherDetail, lblEndDate, lblMinTransaction, lblTermsConditions;
     Button btnRedeem;
+    String id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class VoucherDetailActivity extends AppCompatActivity {
         fetchVoucher(voucherId);
     }
 
-    private void fetchVoucher(String voucherId) {
+    private void fetchVoucher(final String voucherId) {
         firestore.collection("voucher")
                 .document(voucherId)
                 .get()
@@ -50,6 +52,7 @@ public class VoucherDetailActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful()){
                             Map map = task.getResult().getData();
+                            id = task.getResult().getId();
                             new DownloadImageFromInternet(imageView).execute(map.get("url").toString());
                             lblVoucherDetail.setText(map.get("voucher_detail").toString());
                             lblEndDate.setText(map.get("end_date").toString());
@@ -64,7 +67,9 @@ public class VoucherDetailActivity extends AppCompatActivity {
         btnRedeem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(VoucherDetailActivity.this, "Redeem Clicked", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(VoucherDetailActivity.this, RedeemVoucherActivity.class);
+                i.putExtra("voucherId", id);
+                startActivity(i);
             }
         });
     }
