@@ -85,6 +85,7 @@
                 android:layout_height="match_parent"/>
         </RelativeLayout>
         <Button
+            android:id="@+id/btn_booking"
             android:text="Booking"
             android:textSize="20sp"
             android:background="#ffa500"

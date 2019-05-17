@@ -21,7 +21,8 @@ import java.util.Map;
 public class RestaurantInfoActivity extends AppCompatActivity {
     private FirebaseFirestore firestore;
     private TextView lblTitle, lblAddress, lblEatery, lblOpening;
-    private Button btnMenu, btnListReview;
+    private Button btnMenu, btnListReview, btnBooking;
+    private int restaurantId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +36,10 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         lblOpening = findViewById(R.id.lbl_opening);
         btnMenu = findViewById(R.id.menu);
         btnListReview = findViewById(R.id.listreview);
+        btnBooking = findViewById(R.id.btn_booking);
 
         Bundle extras = getIntent().getExtras();
-        final int restaurantId = extras.getInt("restaurantId");
+        restaurantId = extras.getInt("restaurantId");
 
         fetchRestaurant(restaurantId);
         btnMenu.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +55,15 @@ public class RestaurantInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(RestaurantInfoActivity.this, RestaurantInfoReviewListActivity.class);
+                i.putExtra("restaurantId", restaurantId);
+                startActivity(i);
+            }
+        });
+
+        btnBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RestaurantInfoActivity.this, BookingFormActivity.class);
                 i.putExtra("restaurantId", restaurantId);
                 startActivity(i);
             }

@@ -78,7 +78,7 @@
             android:layout_marginTop="80dp"
             android:layout_marginRight="200dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Trasnfer Bank"
+            android:text="Transfer Bank"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
         <RadioButton

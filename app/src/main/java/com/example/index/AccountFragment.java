@@ -102,7 +102,8 @@ public class AccountFragment extends Fragment {
         layoutSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(v.getContext(), "Setting Intent", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(v.getContext(), "Setting Intent", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(v.getContext(), EditProfileActivity.class));
             }
         });
 

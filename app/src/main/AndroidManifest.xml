@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Booking_form"></activity>
+        <activity android:name=".PaymentDetailActivity"></activity>
+        <activity android:name=".ConfirmPaymentActivity" />
+        <activity android:name=".PaymentMethodActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".BookingFormActivity" />
         <activity android:name=".RedeemVoucherActivity" />
         <activity android:name=".RestaurantInfoReviewListActivity" />
         <activity android:name=".RestaurantMenuActivity" />

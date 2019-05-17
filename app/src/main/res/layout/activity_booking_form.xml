@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Booking_form">
+    tools:context=".BookingFormActivity">
 
     <ImageView
         android:layout_centerInParent="true"
@@ -40,7 +40,7 @@
         android:id="@+id/peopledetail"
         android:layout_below="@+id/pick_result"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="40dp"
         android:text="How many People:"
         android:fontFamily="sans-serif-medium"
         android:textStyle="bold"
