@@ -1,6 +1,7 @@
 package com.example.index.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -11,9 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.index.HistoryDetailActivity;
 import com.example.index.Objects.History;
 import com.example.index.R;
 
@@ -48,6 +51,20 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryView
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 historyViewHolder.ratingBar.setRating(h.getRating());
+            }
+        });
+
+        historyViewHolder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, HistoryDetailActivity.class);
+                i.putExtra("name", h.getRestaurant_name());
+                i.putExtra("datetime", h.getCreated_at());
+                i.putExtra("amount", h.getAmount());
+                i.putExtra("payment", h.getPaymentMethod());
+                i.putExtra("rating", h.getRating());
+
+                context.startActivity(i);
             }
         });
     }
@@ -87,6 +104,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryView
 }
 
 class HistoryViewHolder extends RecyclerView.ViewHolder{
+    LinearLayout layout;
 
     ImageView imageView;
     TextView lblRestaurantName;
@@ -94,6 +112,7 @@ class HistoryViewHolder extends RecyclerView.ViewHolder{
     RatingBar ratingBar;
     public HistoryViewHolder(@NonNull View itemView) {
         super(itemView);
+        layout = itemView.findViewById(R.id.layout_history);
         imageView = itemView.findViewById(R.id.imageView);
         lblRestaurantName = itemView.findViewById(R.id.menu_name);
         lblDate = itemView.findViewById(R.id.date);

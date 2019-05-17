@@ -73,7 +73,7 @@ public class HistoryFragment extends Fragment {
 
     private void fetchHistory(final View v) {
         histories.clear();
-        firestore.collection("history")
+        firestore.collection("review")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -82,11 +82,12 @@ public class HistoryFragment extends Fragment {
                             for (QueryDocumentSnapshot snapshot:
                                  task.getResult()) {
                                 Map m = snapshot.getData();
-                                History h = new History(Integer.parseInt(m.get("id").toString()), 
+                                History h = new History(0,
                                         convertToRestaurantName(Integer.parseInt(m.get("restaurant_id").toString())),
                                         convertToRestaurantUrl(Integer.parseInt(m.get("restaurant_id").toString())),
                                         Float.parseFloat(m.get("rating").toString()),
-                                        m.get("created_at").toString());
+                                        m.get("created_at").toString(), Integer.parseInt(m.get("amount").toString()),
+                                        m.get("payment_method").toString());
 
                                 if(mAuth.getCurrentUser() != null &&
                                         m.get("user_id").toString().equals(mAuth.getCurrentUser().getUid()))

@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
-        android:id="@+id/dateorder_booking"
+        android:id="@+id/lbl_dateorder_booking"
         android:layout_toRightOf="@+id/dateorder"
         android:layout_below="@+id/nama"
         android:layout_marginBottom="30dp"

@@ -5,13 +5,33 @@ public class History {
     private String restaurant_name, restaurant_url;
     private float rating;
     private String created_at;
+    private int amount;
+    private String paymentMethod;
 
-    public History(int id, String restaurant_name, String restaurant_url, float rating, String created_at) {
+    public History(int id, String restaurant_name, String restaurant_url, float rating, String created_at, int amount, String paymentMethod) {
         this.id = id;
         this.restaurant_name = restaurant_name;
         this.restaurant_url = restaurant_url;
         this.rating = rating;
         this.created_at = created_at;
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public String getRestaurant_url() {
