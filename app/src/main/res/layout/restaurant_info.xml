@@ -1,85 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RestaurantInfoActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="280dp"
+            android:layout_width="412dp"
+            android:layout_height="274dp"
             app:srcCompat="@drawable/susasana"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAlignment="center"
             android:textSize="25sp"
             android:text="Kintan Buffet, Central Park"
+            android:fontFamily="sans-serif-medium\"
             android:textColor="#000000"
             android:textStyle="bold" />
         <TextView
             android:text="Jl. Letjen S. Parman, Kb. Jeruk, Kota Jakarta Barat"
             android:textAlignment="center"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="12dp"
             android:text="Eatery Type: Buffet"
             android:textSize="20sp"
             android:textColor="#000"
             android:layout_width="wrap_content"
-            android:layout_height="40dp" />
+            android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="16dp"
             android:text="Opening Hours: Mon-Sun (10am-22pm)"
             android:textSize="20sp"
             android:textColor="#000"
             android:layout_width="wrap_content"
-            android:layout_height="45dp" />
+            android:layout_height="wrap_content" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <Button
-            android:id="@+id/menu"
-            android:text="Menu"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content" />
+            <Button
+                android:background="@drawable/restaurant_button"
+                android:id="@+id/menu"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:text="Menu"
+                android:textSize="16dip"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"/>
             <Button
                 android:id="@+id/listreview"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
                 android:text="List Review"
+                android:layout_marginLeft="10dp"
+                android:textSize="13dip"
+                android:background="@drawable/restaurant_button1"
                 android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/menu"/>
             <Button
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="13dip"
+                android:background="@drawable/restaurant_button1"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
                 android:text="Direction"
                 android:textColor="@color/colorPrimary"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/listreview"/>
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/menu"
-            android:numStars="5" />
-        <TextView
-            android:text="4.3"
-            android:textSize="40sp"
-            android:textColor="#008000"
-            android:textAlignment="center"
-            android:layout_toRightOf="@id/ratingBar"
-            android:layout_below="@id/menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            <RatingBar
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/menu"
+                android:numStars="5" />
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="4.3"
+                android:textSize="40sp"
+                android:textColor="#008000"
+                android:textAlignment="center"
+                android:layout_toRightOf="@id/ratingBar"
+                android:layout_below="@id/menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </RelativeLayout>
         <Button
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
             android:text="Booking"
             android:textSize="20sp"
             android:background="#ffa500"

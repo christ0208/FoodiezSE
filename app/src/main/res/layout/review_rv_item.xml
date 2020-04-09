@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/listbar"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/bargrey"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <ImageView
+            android:id="@+id/listpic"
+            android:layout_marginLeft="3dp"
+            android:layout_below="@id/listbar"
+            android:background="@mipmap/kintan"
+            android:layout_marginTop="4dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            />
+        <TextView
+            android:id="@+id/menu_name"
+            android:text="Kintan Buffet"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#000"
+            android:textSize="20dip"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_below="@id/listbar"
+            android:layout_toRightOf="@+id/listpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_below="@id/menu_name"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="150dp"
+            android:numStars="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            style="?android:attr/ratingBarStyleSmall"/>
+        <TextView
+            android:id="@+id/restaurant_review"
+            android:layout_below="@id/rating_bar"
+            android:layout_toRightOf="@id/listpic"
+            android:layout_marginLeft="10dp"
+            android:textSize="15dip"
+            android:text="Review:"
+            android:fontFamily="sans-serif-medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_below="@id/listpic"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/bar"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
